@@ -12,6 +12,9 @@ export default ({ data }) => (
       <div className="sheet__inner">
         <h1 className="sheet__title">{data.datoCmsWork.title}</h1>
         <p className="sheet__lead">{data.datoCmsWork.excerpt}</p>
+        <div className="sheet__gallery">
+          <Img fluid={data.datoCmsWork.coverImage.fluid} />
+        </div>
         <div className="sheet__slider">
           <Slider infinite={true} slidesToShow={2} arrows>
             {data.datoCmsWork.gallery.map(({ fluid }) => (
@@ -25,9 +28,6 @@ export default ({ data }) => (
             __html: data.datoCmsWork.descriptionNode.childMarkdownRemark.html,
           }}
         />
-        <div className="sheet__gallery">
-          <Img fluid={data.datoCmsWork.coverImage.fluid} />
-        </div>
       </div>
     </article>
   </Layout>
